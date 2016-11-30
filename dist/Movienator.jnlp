@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Movienator.jnlp">
+  <information>
+    <title>Movienator</title>
+    <vendor>gabriel</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Movienator.jar" size="73924" download="eager" />
+    <jar href="lib\jackson-annotations-2.0.1.jar" size="33377" download="eager" />
+    <jar href="lib\jackson-core-2.0.1.jar" size="193573" download="eager" />
+    <jar href="lib\jackson-databind-2.0.1.jar" size="846423" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.40-bin.jar" size="990927" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Movienator" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="movienator.Movienator"  name="Movienator" />
+  <update check="always"/>
+</jnlp>

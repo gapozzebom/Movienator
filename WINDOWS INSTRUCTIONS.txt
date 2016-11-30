@@ -1,0 +1,5 @@
+1 - Look for my.ini file in mysql/bin
+2 - Search # The MySQL server session
+3 - Input the value in a new line:
+lower_case_table_names = 2
+4 - Save file and restart mysql.

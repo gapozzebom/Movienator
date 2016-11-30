@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movienator.Controller.MainController">
+   <children>
+      <TabPane layoutX="5.0" layoutY="5.0" prefHeight="689.0" prefWidth="890.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="My movies">
+               <content>
+                  <AnchorPane prefHeight="632.0" prefWidth="890.0">
+                     <children>
+                        <TableView fx:id="watched_tblMovies" layoutX="17.0" layoutY="113.0" onMouseClicked="#watched_tblMoviesEvent" prefHeight="530.0" prefWidth="450.0">
+                          <columns>
+                            <TableColumn prefWidth="358.0" text="Title">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="title" />
+                                </cellValueFactory>
+                            </TableColumn>
+                              <TableColumn prefWidth="91.0" text="Rate">
+                                  <cellValueFactory>
+                                    <PropertyValueFactory property="rate" />
+                                </cellValueFactory>
+                            </TableColumn>
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="watched_txtSearch" layoutX="19.0" layoutY="46.0" prefHeight="30.0" prefWidth="356.0" />
+                        <Button fx:id="watched_btnSearch" layoutX="386.0" layoutY="44.0" mnemonicParsing="false" onAction="#watched_btnSearchEvent" prefHeight="33.0" prefWidth="79.0" text="Search" />
+                        <TextArea fx:id="watched_txtReview" layoutX="480.0" layoutY="157.0" prefHeight="486.0" prefWidth="400.0" />
+                        <Label fx:id="watched_lblTitle" layoutX="479.0" layoutY="45.0" prefHeight="35.0" prefWidth="410.0" text="MOVIENAME" />
+                        <Label layoutX="480.0" layoutY="97.0" text="RATE THIS:" />
+                        <Slider fx:id="watched_sliderRate" blockIncrement="1.0" layoutX="572.0" layoutY="94.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" onMouseDragged="#watched_sliderEvent" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" />
+                        <Label fx:id="watched_lblRate" layoutX="720.0" layoutY="95.0" text="10" />
+                        <Separator layoutX="469.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="655.0" prefWidth="11.0" />
+                        <Label layoutX="481.0" layoutY="134.0" text="REVIEW" />
+                        <Button fx:id="watched_btnSave" layoutX="813.0" layoutY="124.0" mnemonicParsing="false" onAction="#watched_btnSaveEvent" prefHeight="25.0" prefWidth="65.0" text="Save" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab fx:id="searchTab" text="Search">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="search_txtSearch" layoutX="93.0" layoutY="34.0" prefHeight="31.0" prefWidth="547.0" />
+                        <Button fx:id="search_btnSearch" layoutX="661.0" layoutY="33.0" mnemonicParsing="false" onAction="#search_btnSearchEvent" prefHeight="33.0" prefWidth="81.0" text="Search" />
+                        <TableView fx:id="search_tblMovies" layoutX="8.0" layoutY="88.0" onMouseClicked="#search_tblMoviesEvent" prefHeight="561.0" prefWidth="500.0">
+                          <columns>
+                            <TableColumn fx:id="search_columnTitle" prefWidth="311.0" text="Title">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="title" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="search_columnGenre" prefWidth="96.0" text="Genre">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="genre" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="search_columnRating" prefWidth="92.0" text="Rating">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="imdbRating" />
+                                </cellValueFactory>
+                            </TableColumn>
+                          </columns>
+                        </TableView>
+                        <Label fx:id="search_lblMovieName" layoutX="515.0" layoutY="88.0" prefHeight="29.0" prefWidth="368.0" text="MOVIENAME" />
+                        <Label fx:id="search_lblDirectors" alignment="TOP_LEFT" layoutX="517.0" layoutY="168.0" prefHeight="32.0" prefWidth="366.0" text="&lt;DIRECTORS&gt;" textAlignment="JUSTIFY" wrapText="true" />
+                        <Label layoutX="517.0" layoutY="146.0" text="DIRECTORS:" />
+                        <Label layoutX="517.0" layoutY="204.0" text="STARS:" />
+                        <Label fx:id="search_lblStars" alignment="TOP_LEFT" layoutX="516.0" layoutY="223.0" prefHeight="41.0" prefWidth="366.0" text="&lt;STARS&gt;" wrapText="true" />
+                        <Label layoutX="513.0" layoutY="274.0" text="RATING:" />
+                        <Label fx:id="search_lblRating" layoutX="568.0" layoutY="274.0" text="&lt;RATING&gt;" />
+                        <Label layoutX="513.0" layoutY="299.0" text="PLOT" />
+                        <Label fx:id="search_lblPlot" alignment="TOP_LEFT" layoutX="513.0" layoutY="324.0" prefHeight="319.0" prefWidth="365.0" text="&lt;PLOT&gt;" textAlignment="JUSTIFY" wrapText="true" />
+                        <Label layoutX="515.0" layoutY="120.0" text="GENRES:" />
+                        <Label fx:id="search_lblGenre" layoutX="576.0" layoutY="120.0" text="&lt;GENRE&gt;" />
+                        <Button fx:id="search_btnWish" layoutX="775.0" layoutY="269.0" mnemonicParsing="false" onAction="#search_btnWishEvent" text="Wish List" />
+                        <Button fx:id="search_btnWatched" layoutX="644.0" layoutY="269.0" mnemonicParsing="false" onAction="#search_btnWatchedEvent" text="Watched" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Sugests">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="sugests_tblMovies" layoutX="14.0" layoutY="14.0" onMouseClicked="#sugests_tblMoviesEvent" prefHeight="634.0" prefWidth="504.0">
+                          <columns>
+                            <TableColumn prefWidth="322.0" text="Title">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="title" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="113.0" text="Genre">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="genre" />
+                                </cellValueFactory>
+                            </TableColumn>
+                              <TableColumn prefWidth="68.0" text="Rating">
+                                  <cellValueFactory>
+                                    <PropertyValueFactory property="imdbRating" />
+                                </cellValueFactory>
+                            </TableColumn>
+                          </columns>
+                        </TableView>
+                        <Label fx:id="sugests_lblTitle" alignment="TOP_LEFT" layoutX="536.0" layoutY="43.0" prefHeight="34.0" prefWidth="345.0" text="MOVIENAME" wrapText="true" />
+                        <Label fx:id="sugests_lblGenres" layoutX="600.0" layoutY="76.0" text="&lt;GENRES&gt;" />
+                        <Label layoutX="535.0" layoutY="76.0" text="GENRES:" />
+                        <Label layoutX="536.0" layoutY="107.0" text="DIRECTORS:" />
+                        <Label fx:id="sugests_lblDirectors" alignment="TOP_LEFT" layoutX="535.0" layoutY="124.0" prefHeight="36.0" prefWidth="345.0" text="&lt;DIRECTORS&gt;" wrapText="true" />
+                        <Label layoutX="537.0" layoutY="163.0" text="STARS:" />
+                        <Label fx:id="sugests_lblStars" alignment="TOP_LEFT" layoutX="534.0" layoutY="181.0" prefHeight="36.0" prefWidth="352.0" text="&lt;STARS&gt;" />
+                        <Label layoutX="533.0" layoutY="226.0" text="RATING:" />
+                        <Label fx:id="sugests_lblRating" layoutX="590.0" layoutY="226.0" text="&lt;RATING&gt;" />
+                        <Label layoutX="533.0" layoutY="255.0" text="PLOT:" />
+                        <Label fx:id="sugests_lblPlot" alignment="TOP_LEFT" layoutX="531.0" layoutY="274.0" prefHeight="366.0" prefWidth="350.0" text="&lt;PLOT&gt;" wrapText="true" />
+                        <Button fx:id="sugests_btnWish" layoutX="781.0" layoutY="221.0" mnemonicParsing="false" onAction="#sugests_btnWishEvent" text="Wish List" />
+                        <Button fx:id="sugests_btnWatched" layoutX="664.0" layoutY="221.0" mnemonicParsing="false" onAction="#sugests_btnWatchedEvent" text="Watched" />
+                        <Button fx:id="sugests_btnLoad" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#sugests_btnLoadEvent" text="Load" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Wish List">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="wish_tblMovies" layoutX="14.0" layoutY="14.0" onMouseClicked="#wish_tblMoviesEvent" prefHeight="634.0" prefWidth="504.0">
+                           <columns>
+                              <TableColumn prefWidth="322.0" text="Title">
+                                  <cellValueFactory>
+                                    <PropertyValueFactory property="title" />
+                                </cellValueFactory>
+                            </TableColumn>
+                              <TableColumn prefWidth="113.0" text="Genre">
+                                      <cellValueFactory>
+                                    <PropertyValueFactory property="genre" />
+                                </cellValueFactory>
+                            </TableColumn>
+                              <TableColumn prefWidth="68.0" text="Rating">
+                                      <cellValueFactory>
+                                    <PropertyValueFactory property="imdbRating" />
+                                </cellValueFactory>
+                            </TableColumn>
+                           </columns>
+                        </TableView>
+                        <Label fx:id="wish_lblTitle" alignment="TOP_LEFT" layoutX="535.0" layoutY="43.0" prefHeight="32.0" prefWidth="347.0" text="MOVIENAME" wrapText="true" />
+                        <Label fx:id="wish_lblGenres" layoutX="600.0" layoutY="76.0" text="&lt;GENRES&gt;" />
+                        <Label layoutX="535.0" layoutY="76.0" text="GENRES:" />
+                        <Label layoutX="536.0" layoutY="107.0" text="DIRECTORS:" />
+                        <Label fx:id="wish_lblDirectors" alignment="TOP_LEFT" layoutX="536.0" layoutY="125.0" prefHeight="36.0" prefWidth="345.0" text="&lt;DIRECTORS&gt;" wrapText="true" />
+                        <Label layoutX="537.0" layoutY="163.0" text="STARS:" />
+                        <Label fx:id="wish_lblStars" alignment="TOP_LEFT" layoutX="534.0" layoutY="180.0" prefHeight="38.0" prefWidth="348.0" text="&lt;STARS&gt;" wrapText="true" />
+                        <Label layoutX="533.0" layoutY="226.0" text="RATING:" />
+                        <Label fx:id="wish_lblRating" layoutX="590.0" layoutY="226.0" text="&lt;RATING&gt;" />
+                        <Label layoutX="533.0" layoutY="255.0" text="PLOT:" />
+                        <Label fx:id="wish_lblPlot" alignment="TOP_LEFT" layoutX="531.0" layoutY="274.0" prefHeight="373.0" prefWidth="350.0" text="&lt;PLOT&gt;" wrapText="true" />
+                        <Button fx:id="wish_btnWish" layoutX="781.0" layoutY="221.0" mnemonicParsing="false" onAction="#wish_btnWishEvent" text="Wish List" />
+                        <Button fx:id="wish_btnWatched" layoutX="664.0" layoutY="221.0" mnemonicParsing="false" onAction="#wish_btnWatchedEvent" text="Watched" />
+                        <Button fx:id="wish_btnLoad" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#wish_btnLoadEvent" text="Load" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Friends">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
